@@ -2,16 +2,18 @@
   <h1>我是Test</h1>
   <div>
     <table>
-      <tr v-for="(item, index) in testsBox" :key="item.productName">
-        <td>{{ index }}</td>
+      <tr v-for="(item) in testsBox.tests" :key="item.productName">
+        <!--<td>{{ index }}</td>-->
+        <td>{{ item.productId }}</td>
         <td>{{ item.productName }}</td>
         <td>{{ item.productPrice }}</td>
+        <td>{{ item.productNum }}</td>
       </tr>
     </table>
   </div>
   <div class="main-form first">
     <div class="main-form__title">
-      <h1>Sign-up</h1>
+      <h1>新增商品</h1>
     </div>
     <div class="main-form__body">
       <input
@@ -139,9 +141,14 @@ export default {
       });
       axios
         .get("/data/productPage")
+        // .get("/data/student/allstudent")
         .then((res) => {
+          console.log(res);
           console.log(res.data);
+          console.log(testsBox);
           testsBox.tests = res.data;
+          console.log(testsBox.tests);
+          console.log(testsBox.tests[4]);
         })
         .catch((error) => {
           console.log(error);

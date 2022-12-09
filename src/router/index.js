@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/HomeView.vue'
 import Test from '../views/Test'
+import paginate from '../views/paginate'
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
     path: '/test',
     name: 'Test',
     component: Test
+  },
+  {
+    path: '/paginate',
+    name: 'paginate',
+    component: paginate
   }
 ]
 
