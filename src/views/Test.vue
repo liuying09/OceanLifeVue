@@ -2,7 +2,7 @@
   <h1>我是Test</h1>
   <div>
     <table>
-      <tr v-for="(item) in testsBox.tests" :key="item.productName">
+      <tr v-for="item in testsBox.tests" :key="item.productName">
         <!--<td>{{ index }}</td>-->
         <td>{{ item.productId }}</td>
         <td>{{ item.productName }}</td>
@@ -122,7 +122,7 @@ export default {
 
         axios({
           method: "post",
-          url: "/data/addProduct",
+          url: "https://oceandemo.herokuapp.com/MySpringBoot/addProduct",
           // API要求的資料
           data: {
             productName: PRODUCTNAME,
