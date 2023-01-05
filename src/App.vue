@@ -5,6 +5,7 @@
     <router-link to="/test">Test</router-link>
     <router-link to="/paginate">paginate</router-link>
     <router-link to="/testTwo">testTwo</router-link>
+    <router-link to="/imageShow">imageShow</router-link>
   </nav>
   <router-view />
 </template>

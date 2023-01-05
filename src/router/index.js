@@ -3,6 +3,7 @@ import Home from '../views/HomeView.vue'
 import Test from '../views/Test'
 import paginate from '../views/paginate'
 import testTwo from '../views/testTwo'
+import imageShow from '../views/imageShow'
 
 const routes = [
   {
@@ -32,6 +33,11 @@ const routes = [
     path: '/testTwo',
     name: 'testTwo',
     component: testTwo
+  },
+  {
+    path: '/imageShow',
+    name: 'imageShow',
+    component: imageShow
   }
 ]
 
