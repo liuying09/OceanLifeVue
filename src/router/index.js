@@ -4,6 +4,7 @@ import Test from '../views/Test'
 import paginate from '../views/paginate'
 import testTwo from '../views/testTwo'
 import imageShow from '../views/imageShow'
+import ArticleEdit from '../views/ArticleEdit'
 
 const routes = [
   {
@@ -38,6 +39,11 @@ const routes = [
     path: '/imageShow',
     name: 'imageShow',
     component: imageShow
+  },
+  {
+    path: '/ArticleEdit',
+    name: 'ArticleEdit',
+    component: ArticleEdit
   }
 ]
 
