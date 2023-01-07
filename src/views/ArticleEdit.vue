@@ -55,8 +55,9 @@
             type="file"
             name="file-to-upload"
             ref="fileInput"
+            value=""
           />
-          <img :src="'data:image/png;base64,' + images" alt="" style="width: 300px; heigh: 200px" />
+          <img :src="'data:image/png;base64,' + testsBox.tests.articleImg" alt="" style="width: 300px; heigh: 200px" />
         </li>
         <li>
           <label for="">標題</label>
@@ -105,10 +106,10 @@ export default {
     onMounted(() => {
       axios({
         method: "post",
-        // url: "http://localhost:8090/MySpringBoot/findArticleByArticleID",
-        url: "https://oceandemo.herokuapp.com/MySpringBoot/findArticleByArticleID",
+        url: "http://localhost:8090/MySpringBoot/updateArticle",
+        // url: "https://oceandemo.herokuapp.com/MySpringBoot/findArticleByArticleID",
         data: {
-          articleID: 14
+          articleID: 24
         }
       }).then((res) => {
         console.log(res);
@@ -120,7 +121,7 @@ export default {
         $("#title").val(testsBox.tests.articleTitle);
         $("#content").val(testsBox.tests.articleContent);
         $("#remark").val(testsBox.tests.articleRemark);
-        $("#status").val();
+        $("#customFile").src(testsBox.tests.articleImg);
       });
     });
     return { testsBox };

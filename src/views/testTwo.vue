@@ -99,13 +99,13 @@ export default {
       formData.append("content", contentInfo); // 文章內容
       formData.append("remark", remarkInfo); // 文章內容-備註
       formData.append("status", statusInfo); // 文章狀態
-      formData.append("id", 14); // 文章狀態
+      formData.append("id", 21); // 文章狀態
       console.log(formData);
       // (3) 將form表單的內容透過API的方式，發送到伺服器
       // const fileName = fileInput.value.id;
 
-      const url = `https://oceandemo.herokuapp.com/MySpringBoot/updateArticle`;
-      // const url = `http://localhost:8090/MySpringBoot/updateArticle`;
+      // const url = `https://oceandemo.herokuapp.com/MySpringBoot/addArticle`;
+      const url = `http://localhost:8090/MySpringBoot/updateArticle`;
 
       axios
         .post(url, formData)
