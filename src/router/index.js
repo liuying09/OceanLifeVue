@@ -5,6 +5,8 @@ import paginate from '../views/paginate'
 import testTwo from '../views/testTwo'
 import imageShow from '../views/imageShow'
 import ArticleEdit from '../views/ArticleEdit'
+import addProduct from '../views/addProduct'
+import ProductEdit from '../views/ProductEdit'
 
 const routes = [
   {
@@ -44,6 +46,16 @@ const routes = [
     path: '/ArticleEdit',
     name: 'ArticleEdit',
     component: ArticleEdit
+  },
+  {
+    path: '/addProduct',
+    name: 'addProduct',
+    component: addProduct
+  },
+  {
+    path: '/ProductEdit',
+    name: 'ProductEdit',
+    component: ProductEdit
   }
 ]
 

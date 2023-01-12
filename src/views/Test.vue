@@ -145,10 +145,10 @@ export default {
         .then((res) => {
           console.log(res);
           console.log(res.data);
-          console.log(testsBox);
+          // console.log(testsBox);
           testsBox.tests = res.data;
-          console.log(testsBox.tests);
-          console.log(testsBox.tests[4]);
+          // console.log(testsBox.tests);
+          // console.log(testsBox.tests[4]);
         })
         .catch((error) => {
           console.log(error);

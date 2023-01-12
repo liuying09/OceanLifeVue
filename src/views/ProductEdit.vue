@@ -1,28 +1,37 @@
 <template>
   <table>
     <!-- <tr v-for="item in testsBox.tests" :key="item.articleTitle"> -->
-    <!--<td>{{ index }}</td>-->
-    <!-- <td>{{ item.articleTitle }}</td> -->
-    <!-- <td>{{ item.articleContent }}</td> -->
-    <!-- <td>{{ item.articleRemark }}</td> -->
-    <!-- <td>{{ item.articleStatus }}</td> -->
+      <!--<td>{{ index }}</td>-->
+      <!-- <td>{{ item.articleTitle }}</td> -->
+      <!-- <td>{{ item.articleContent }}</td> -->
+      <!-- <td>{{ item.articleRemark }}</td> -->
+      <!-- <td>{{ item.articleStatus }}</td> -->
     <!-- </tr> -->
   </table>
   <table>
     <tr>
       <!--<td>{{ index }}</td>-->
-      <td>{{ testsBox.tests.activityTitle }}</td>
-      <td>{{ testsBox.tests.activityContent }}</td>
+      <!-- <td>{{ testsBox.tests.articleTitle }}</td>
+      <td>{{ testsBox.tests.articleContent }}</td>
       <td>{{ testsBox.tests.articleRemark }}</td>
       <td>{{ testsBox.tests.articleStatus }}</td>
+      <td>{{ testsBox.tests.createDate }}</td> -->
+      <td>{{ testsBox.tests.name }}</td>
+      <td>{{ testsBox.tests.content }}</td>
+      <td>{{ testsBox.tests.price }}</td>
+      <td>{{ testsBox.tests.type }}</td>
       <td>{{ testsBox.tests.createDate }}</td>
       <img
-        :src="'data:image/png;base64,' + testsBox.tests.articleImg"
+        :src="'data:image/png;base64,' + testsBox.tests.img0"
+        style="width: 200px"
+      />
+      <img
+        :src="'data:image/png;base64,' + testsBox.tests.img1"
         style="width: 200px"
       />
     </tr>
   </table>
-  <div class="titleBox">
+    <div class="titleBox">
     <h3>消息管理</h3>
     <span>- 新增文章</span>
   </div>
@@ -57,11 +66,7 @@
             ref="fileInput"
             value=""
           />
-          <img
-            :src="'data:image/png;base64,' + testsBox.tests.articleImg"
-            alt=""
-            style="width: 300px; heigh: 200px"
-          />
+          <img :src="'data:image/png;base64,' + testsBox.tests.articleImg" alt="" style="width: 300px; heigh: 200px" />
         </li>
         <li>
           <label for="">標題</label>
@@ -107,30 +112,24 @@ export default {
   setup() {
     //    定義資料:數值 字串要使用ref;物件 陣列要使用reactive
     const testsBox = reactive({ tests: [] });
-    // const ids = [9, 10, 11];
     onMounted(() => {
       axios({
         method: "post",
-        // url: "http://localhost:8090/MySpringBoot/deleteArticleById?idList=" + ids,
-        // url: "http://localhost:8090/MySpringBoot/updateArticle",
+        url: "http://localhost:8090/MySpringBoot/findByProductID",
+        // url: "https://oceandemo.herokuapp.com/MySpringBoot/findByProductID",
+        // url: "https://oceandemo.herokuapp.com/MySpringBoot/findArticle",
         // url: "https://oceandemo.herokuapp.com/MySpringBoot/findArticleByArticleID",
-        url: "http://localhost:8090/MySpringBoot/findByActivityID",
         data: {
-          activityID: 15
+          productId: 15
         }
       }).then((res) => {
         console.log(res);
         console.log(res.data);
+        // console.log(res.data.img[0]);
         testsBox.tests = res.data;
-        var con = res.data.activityContent;
-        con = con.replace(/<br>/g, "\n");
-        console.log("con=" + con);
-        // console.log("createDate=" + testsBox.tests.createDate);
-
-        // $("#title").val(testsBox.tests.articleTitle);
-        // $("#content").val(testsBox.tests.articleContent);
-        // $("#remark").val(testsBox.tests.articleRemark);
-        // $("#customFile").src(testsBox.tests.articleImg);
+        // $("#title").val(testsBox.tests.name);
+        // $("#content").val(testsBox.tests.content);
+        // $("#remark").val(testsBox.tests.price);
       });
     });
     return { testsBox };
