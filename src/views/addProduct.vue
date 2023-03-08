@@ -43,8 +43,8 @@ export default {
       const content = $("#content").val();
       const meterial = $("#meterial").val();
       const size = $("#size").val();
-      const mf = $("#mf").val();
-      const remark = $("#remark").val();
+      // const mf = $("#mf").val();
+      // const remark = $("#remark").val();
 
       // const typeInfo = valueEnInput.value;
       // const titleInfo = titleInput.value;
@@ -57,28 +57,31 @@ export default {
 
       // append 增加一個欄位到表單內，其中一個 file-to-upload
       // file-to-upload 是 input標籤name 的名稱
-      formData.append("name", name);
-      // formData.append("file-to-upload", uploadfile);
-      formData.append("price", price);
-      formData.append("priceSale", priceSale);
-      formData.append("type", type);
-      formData.append("num", num);
-      formData.append("content", content);
-      formData.append("meterial", meterial);
-      formData.append("size", size);
-      formData.append("mf", mf);
-      formData.append("remark", remark);
-      formData.append("id", 15);
+      // formData.append("name", name);
+      formData.append("file-to-upload", uploadfile);
+      // formData.append("price", price);
+      // formData.append("priceSale", priceSale);
+      // formData.append("type", type);
+      // formData.append("num", num);
+      // formData.append("content", content);
+      // formData.append("meterial", meterial);
+      // formData.append("size", size);
+      // formData.append("mf", mf);
+      // formData.append("remark", remark);
+      // formData.append("id", 15);
 
-      // formData.append("title", name);
-      // formData.append("content", price);
-      // formData.append("date", priceSale);
-      // formData.append("time", type);
-      // formData.append("remark", num);
+      formData.append("account", name);
+      formData.append("pass", price);
+      formData.append("name", priceSale);
+      formData.append("gender", type);
+      formData.append("birth", num);
+      formData.append("aderss", content);
+      formData.append("phone", meterial);
+      formData.append("sub", size);
 
-      for (var i = 0; i < fileInput.value.files.length; i++) {
-        formData.append("file-to-upload", fileInput.value.files[i]);
-      }
+      // for (var i = 0; i < fileInput.value.files.length; i++) {
+      //   formData.append("file-to-upload", fileInput.value.files[i]);
+      // }
       // formData.append("file-to-upload", uploadfile);
       console.log(formData);
       // (3) 將form表單的內容透過API的方式，發送到伺服器
@@ -86,8 +89,9 @@ export default {
 
       // const url = `https://oceandemo.herokuapp.com/MySpringBoot/addArticle`;
       // const url = `http://localhost:8090/MySpringBoot/addProduct`;
-      const url = `http://localhost:8090/MySpringBoot/updateProduct`;
+      // const url = `http://localhost:8090/MySpringBoot/updateProduct`;
       // const url = `http://localhost:8090/MySpringBoot/addActivity`;
+      const url = `https://oceandemo.herokuapp.com/MySpringBoot/addUser`;
 
       axios
         .post(url, formData)
@@ -122,7 +126,7 @@ export default {
 
   <!-- 表格資料 -->
   <form
-    action="http://localhost:8090/MySpringBoot/addProduct"
+    action="https://oceandemo.herokuapp.com/MySpringBoot/addUser"
     method="post"
     enctype="multipart/form-data"
   >

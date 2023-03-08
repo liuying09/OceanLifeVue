@@ -106,38 +106,48 @@ export default {
 
     onMounted(() => {
       $("#enter").click(function () {
-        const PRODUCTNAME = $("#PRODUCTNAME").val();
-        const PRODUCTPRICE = $("#PRODUCTPRICE").val();
-        const PRODUCTPRICESALE = $("#PRODUCTPRICESALE").val();
-        const PRODUCTIMG = $("#PRODUCTIMG").val();
-        const PRODUCTTYPE = $("#PRODUCTTYPE").val();
-        const PRODUCTNUM = $("#PRODUCTNUM").val();
-        const PRODUCTCONTENT = $("#PRODUCTCONTENT").val();
-        const PRODUCTSPENMATERIAL = $("#PRODUCTSPENMATERIAL").val();
-        const PRODUCTSPENSIZE = $("#PRODUCTSPENSIZE").val();
-        const PRODUCTSPENMF = $("#PRODUCTSPENMF").val();
-        const PRODUCTREMARK = $("#PRODUCTREMARK").val();
+        const userAccount = $("#PRODUCTNAME").val();
+        const userPass = $("#PRODUCTPRICE").val();
+        const PRODUCTNAME = $("#PRODUCTPRICESALE").val();
+        // const PRODUCTPRICE = $("#PRODUCTPRICE").val();
+        // const PRODUCTPRICESALE = $("#PRODUCTPRICESALE").val();
+        // const PRODUCTIMG = $("#PRODUCTIMG").val();
+        // const PRODUCTTYPE = $("#PRODUCTTYPE").val();
+        // const PRODUCTNUM = $("#PRODUCTNUM").val();
+        // const PRODUCTCONTENT = $("#PRODUCTCONTENT").val();
+        // const PRODUCTSPENMATERIAL = $("#PRODUCTSPENMATERIAL").val();
+        // const PRODUCTSPENSIZE = $("#PRODUCTSPENSIZE").val();
+        // const PRODUCTSPENMF = $("#PRODUCTSPENMF").val();
+        // const PRODUCTREMARK = $("#PRODUCTREMARK").val();
 
         console.log("PRODUCTNAME= " + PRODUCTNAME);
 
         axios({
           method: "post",
-          url: "https://oceandemo.herokuapp.com/MySpringBoot/addProduct",
+          // url: "https://oceandemo.herokuapp.com/MySpringBoot/addProduct",
+          // url: "http://localhost:8090/MySpringBoot/login",
+          url: "http://localhost:8090/MySpringBoot/addUser",
+          // url: "https://oceandemo.herokuapp.com/MySpringBoot/login",
           // API要求的資料
           data: {
-            productName: PRODUCTNAME,
-            productPrice: PRODUCTPRICE,
-            productPriceSale: PRODUCTPRICESALE,
-            productImg: PRODUCTIMG,
-            productType: PRODUCTTYPE,
-            productNum: PRODUCTNUM,
-            productContent: PRODUCTCONTENT,
-            productSpenMaterial: PRODUCTSPENMATERIAL,
-            productSpenSize: PRODUCTSPENSIZE,
-            productSpenMF: PRODUCTSPENMF,
-            productRemark: PRODUCTREMARK
+            account: userAccount,
+            pass: userPass,
+            name: PRODUCTNAME
+            // userAccount: userAccount,
+            // userPass: userPass
+            // productName: PRODUCTNAME,
+            // productPrice: PRODUCTPRICE,
+            // productPriceSale: PRODUCTPRICESALE,
+            // productImg: PRODUCTIMG,
+            // productType: PRODUCTTYPE,
+            // productNum: PRODUCTNUM,
+            // productContent: PRODUCTCONTENT,
+            // productSpenMaterial: PRODUCTSPENMATERIAL,
+            // productSpenSize: PRODUCTSPENSIZE,
+            // productSpenMF: PRODUCTSPENMF,
+            // productRemark: PRODUCTREMARK
           }
-        }).then((response) => alert("新增成功"));
+        }).then((response) => console.log("response= " + response.data));
       });
       axios
         .get("/data/productPage")
